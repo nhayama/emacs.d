@@ -1,9 +1,23 @@
-;; emacsの設定いろいろ
+;; emacs settings
 
 (package-initialize)
+
+;; MELPA
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" .
+				   "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; use-package
 (require 'use-package)
 
-;; テーマの設定
+;; theme settings
+;; taken from https://qiita.com/Ladicle/items/feb5f9dce9adf89652cf
 (use-package doom-themes
   :custom
   (doom-themes-enable-italic t)
@@ -15,8 +29,8 @@
   (doom-themes-neotree-config)
   (doom-themes-org-config))
 
-;; modeline の設定
-;; 必要: "M-x all-the-icons-install-fonts"
+;; modeline settings
+;; need: "M-x all-the-icons-install-fonts"
 (use-package doom-modeline
   :custom
   (doom-modeline-buffer-file-name-style 'truncate-with-project)
@@ -33,7 +47,7 @@
     '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker)))
 
-;; キーバインドのガイドを表示する
+;; show the guide of keybinds
 (use-package which-key
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
@@ -69,17 +83,6 @@
 
 ;; C-h を バックスペースへ
 (global-set-key "\C-h" 'delete-backward-char)
-
-;; MELPA の設定
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" .
-				   "http://elpa.gnu.org/packages/")))
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; load-path を追加する関数を定義
 (defun add-to-load-path (&rest paths)
