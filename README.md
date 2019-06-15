@@ -1,2 +1,2 @@
-# init.el
-My emacs setting file
+# emacs.d
+My personal .emacs.d
