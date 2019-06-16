@@ -26,8 +26,8 @@
   (doom-modeline-bar ((t (:background "#6272a4"))))
   :config
   (load-theme 'doom-dracula t)
-  (doom-themes-neotree-config)
-  (doom-themes-org-config))
+  ;; (doom-themes-org-config)
+  (doom-themes-neotree-config))
 
 ;; modeline settings
 ;; need: "M-x all-the-icons-install-fonts"
