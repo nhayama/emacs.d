@@ -97,7 +97,7 @@
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "elpa")
 
-;; diredの設定
+;; dired settings
 ;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
 (setq dired-dwim-target t)
 ;; ディレクトリを再帰的にコピーする
@@ -105,7 +105,7 @@
 ;; diredバッファでC-sした時にファイル名だけにマッチするように
 (setq dired-isearch-filenames t)
 
-;; ウインドウのリサイズ
+;; window-resizer
 (defun my-window-resizer ()
   "Control window size and position."
   (interactive)
@@ -178,18 +178,14 @@
 ;; ;; ### python の設定 ###
 ;; ;; jedi
 ;; (add-hook 'python-mode-hook 'jedi:setup)
-
 ;; ;; autopep8
 ;; (require 'py-autopep8)
 ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-
 ;; ;; pyflakes
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-
 ;; ;; yasnippets
 ;; (require 'yasnippet)
 ;; (yas-global-mode 1)
-
 
 ;; ;; ### Rust の設定 ###
 ;; (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
@@ -201,7 +197,6 @@
 ;; (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'racer-mode-hook #'company-mode)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
-
 
 ;; ### TeXの設定 ###
 ;; AUCTeX
@@ -264,7 +259,6 @@
              ("\\paragraph{%s}" . "\\paragraph*{%s}")
              ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
 ))
-
 
 ;; Aspell
 (setq-default ispell-program-name "aspell")
