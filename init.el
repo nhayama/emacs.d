@@ -97,9 +97,6 @@
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "elpa")
 
-;; emacs で $PATH の設定を引き継ぐ
-;; (exec-path-from-shell-initialize)
-
 ;; diredの設定
 ;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
 (setq dired-dwim-target t)
@@ -181,32 +178,13 @@
 ;; ;; ### python の設定 ###
 ;; ;; jedi
 ;; (add-hook 'python-mode-hook 'jedi:setup)
-;; ;; (jedi:setup)
-;; ;; (define-key jedi-mode-map (kbd "<C-tab>") nil)
-;; ;;C-tabはウィンドウの移動に用いる
-;; (setq jedi:complete-on-dot t)
-;; ;; (setq ac-sources
-;; ;;   (delete 'ac-source-words-in-same-mode-buffers ac-sources))
-;; ;;jediの補完候補だけでいい
-;; ;; (add-to-list 'ac-sources 'ac-source-filename)
-;; ;; (add-to-list 'ac-sources 'ac-source-jedi-direct)
-;; ;; (define-key python-mode-map "\C-ct" 'jedi:goto-definition)
-;; ;; (define-key python-mode-map "\C-cb" 'jedi:goto-definition-pop-marker)
-;; ;; (define-key python-mode-map "\C-cr" 'helm-jedi-related-names)
 
 ;; ;; autopep8
 ;; (require 'py-autopep8)
 ;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-;; ;; (add-hook 'before-save-hook 'py-autopep8-before-save)
-;; ;; (setq py-autopep8-options '("--max-line-length=200"))
-;; ;; (setq flycheck-flake8-maximum-line-length 200)
 
 ;; ;; pyflakes
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-;; ;; (flymake-mode t)
-;; ;; ;;errorやwarningを表示する
-;; ;; (require 'flymake-python-pyflakes)
-;; ;; (flymake-python-pyflakes-load)
 
 ;; ;; yasnippets
 ;; (require 'yasnippet)
