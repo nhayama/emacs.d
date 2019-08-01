@@ -57,10 +57,10 @@
 ;; find-fileのファイル名補完で大文字小文字を区別しない設定
 (setq read-file-name-completion-ignore-case t)
 
-;; org-mode 用のリンク保存
+;; store links for org-mode
 (define-key global-map "\C-cl" 'org-store-link)
 
-;; wdired のショートカット (dired で e を押す)
+;; wdired のショートカット (push 'e' in dired-mode)
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
@@ -72,11 +72,11 @@
 (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")))
 
 ;; フォントの設定
-;; Myrica をインストールしておく必要あり
+;; need to install Myrica
 ;; Myrica.TTC -> "Myrica M", MyricaM.TTC -> "Myrica MM"
 (add-to-list 'default-frame-alist '(font . "Myrica M"))
 
-;; 行番号を表示
+;; show line numbers
 (require 'linum)
 (global-linum-mode)
 
@@ -93,7 +93,7 @@
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
 
-;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
+;; add some directories to load-path
 (add-to-load-path "elisp" "elpa")
 
 ;; dired settings
@@ -163,18 +163,18 @@
 (global-set-key "\C-t" 'gtags-pop-stack)
 
 
-;; ### C言語の設定 ###
+;; ### settings for C ###
 (add-hook 'c-mode-common-hook
 	  '(lambda ()
 	     ;; flyspell-prog-mode をオンにする
 	     (flyspell-prog-mode)
 ))
 
-;; ### sh-mode の設定 ###
+;; ### settings for sh-mode ###
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
 
-;; ;; ### python の設定 ###
+;; ;; ### settings for python ###
 ;; ;; jedi
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; ;; autopep8
@@ -186,7 +186,7 @@
 ;; (require 'yasnippet)
 ;; (yas-global-mode 1)
 
-;; ;; ### Rust の設定 ###
+;; ;; ### settings for Rust ###
 ;; (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 ;; (require 'company-racer)
 ;; (with-eval-after-load 'company
@@ -197,7 +197,7 @@
 ;; (add-hook 'racer-mode-hook #'company-mode)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; ### TeXの設定 ###
+;; ### settings for TeX ###
 ;; AUCTeX
 (require 'tex-site)
 (require 'tex-jp)
