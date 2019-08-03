@@ -46,6 +46,28 @@
     '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker)))
 
+;; org-pomodoro
+(use-package org-pomodoro
+    :after org-agenda
+    :custom
+    (org-pomodoro-ask-upon-killing t)
+    (org-pomodoro-format "%s")
+    (org-pomodoro-short-break-format "%s")
+    (org-pomodoro-long-break-format  "%s")
+    :custom-face
+    (org-pomodoro-mode-line ((t (:foreground "#ff5555"))))
+    (org-pomodoro-mode-line-break   ((t (:foreground "#50fa7b"))))
+    :hook
+    (org-pomodoro-started . (lambda () (notifications-notify
+                                               :title "org-pomodoro"
+                           :body "Let's focus for 25 minutes!")))
+    (org-pomodoro-finished . (lambda () (notifications-notify
+                                               :title "org-pomodoro"
+                           :body "Well done! Take a break.")))
+    :config
+    :bind (:map org-agenda-mode-map
+                ("p" . org-pomodoro)))
+
 ;; show the guide of keybinds
 (use-package which-key
   :diminish which-key-mode
