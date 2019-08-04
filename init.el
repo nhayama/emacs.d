@@ -42,7 +42,6 @@
   (line-number-mode 0)
   (column-number-mode 0)
   (doom-modeline-def-modeline 'main
-    ;; '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
     '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker)))
 
@@ -73,27 +72,27 @@
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-;; M-x のコマンドにキーバインドが割り当てられていたら表示する
+;; show key binds if they are assigned to M-x commands
 (use-package amx)
 
-;; find-fileのファイル名補完で大文字小文字を区別しない設定
+;; completion-ignore-case in find-file
 (setq read-file-name-completion-ignore-case t)
 
 ;; store links for org-mode
 (define-key global-map "\C-cl" 'org-store-link)
 
-;; wdired のショートカット (push 'e' in dired-mode)
+;; short cut for wdired (push 'e' in dired-mode)
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
-;; 拡張子ごとにモードを設定
+;; mode settings for extensions
 (add-to-list 'auto-mode-alist '("\\.lp\\'" . prolog-mode))
 
-;; バックアップファイルの保存先
+;; dist of backup files
 (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")))
 
-;; フォントの設定
+;; settings for font
 ;; need to install Myrica
 ;; Myrica.TTC -> "Myrica M", MyricaM.TTC -> "Myrica MM"
 (add-to-list 'default-frame-alist '(font . "Myrica M"))
@@ -102,10 +101,10 @@
 (require 'linum)
 (global-linum-mode)
 
-;; C-h を バックスペースへ
+;; assign C-h to backspace
 (global-set-key "\C-h" 'delete-backward-char)
 
-;; load-path を追加する関数を定義
+;; a function to add load-path
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -177,7 +176,7 @@
 (global-set-key "\C-qj" 'windmove-down)
 (global-set-key "\C-qk" 'windmove-up)
 
-;; gtags の設定
+;; settings for gtags
 (require 'gtags)
 (global-set-key "\M-t" 'gtags-find-tag)
 (global-set-key "\M-r" 'gtags-find-rtag)
@@ -188,7 +187,7 @@
 ;; ### settings for C ###
 (add-hook 'c-mode-common-hook
 	  '(lambda ()
-	     ;; flyspell-prog-mode をオンにする
+	     ;; use flyspell-prog-mode
 	     (flyspell-prog-mode)
 ))
 
@@ -287,12 +286,12 @@
   '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
 (global-set-key (kbd "C-M-$") 'ispell-complete-word)
 
-;; Latex-mode のインデント
+;; indent in Latex-mode
 (defun my-tex-mode-init ()
    (setq tex-indent-arg 2))
 (add-hook 'tex-mode-hook 'my-tex-mode-init)
 
-;; Custom によって自動で追加された設定
+;; settings added automatically by Custom
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
