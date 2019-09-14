@@ -118,11 +118,9 @@
 (add-to-load-path "elisp" "elpa")
 
 ;; dired settings
-;; diredを2つのウィンドウで開いている時に、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
+;; the default destination is another dired buffer (if opened)
 (setq dired-dwim-target t)
-;; copy a directory recursively
 (setq dired-recursive-copies 'always)
-;; diredバッファでC-sした時にファイル名だけにマッチするように
 (setq dired-isearch-filenames t)
 
 ;; window-resizer
