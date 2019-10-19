@@ -159,16 +159,16 @@
 	       (message "Quit")
 	       (throw 'end-flag t)))))))
 
-;; C-q をプリフィックスキー化
+;; use C-q as a prefix key
 (define-key global-map "\C-q" (make-sparse-keymap))
 
-;; quoted-insert は C-q C-q へ割り当て
+;; assign quoted-insert to C-q C-q
 (global-set-key "\C-q\C-q" 'quoted-insert)
 
-;; window-resizer は C-q C-r (resize) で
+;; window-resizer : C-q C-r (resize)
 (global-set-key "\C-q\C-r" 'my-window-resizer)
 
-;; C-x o のかわりに
+;; instead of C-x o
 (global-set-key "\C-ql" 'windmove-right)
 (global-set-key "\C-qh" 'windmove-left)
 (global-set-key "\C-qj" 'windmove-down)
