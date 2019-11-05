@@ -75,11 +75,10 @@
 ;; show key binds if they are assigned to M-x commands
 (use-package amx)
 
-;; use helm in "C-x b" and "M-x"
-(use-package helm-config)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(setq helm-M-x-fuzzy-match t)
-(helm-mode 1)
+;; use counsel
+(use-package counsel)
+(ivy-mode 1)
+(counsel-mode 1)
 
 ;; completion-ignore-case in find-file
 (setq read-file-name-completion-ignore-case t)
@@ -305,7 +304,7 @@
  '(doom-themes-enable-italic t)
  '(package-selected-packages
    (quote
-    (helm amx which-key org-pomodoro doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region haskell-mode sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
+    (counsel helm amx which-key org-pomodoro doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region haskell-mode sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
