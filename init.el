@@ -45,43 +45,21 @@
     '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker)))
 
-;; org-pomodoro
-(use-package org-pomodoro
-    :after org-agenda
-    :custom
-    (org-pomodoro-ask-upon-killing t)
-    (org-pomodoro-format "%s")
-    (org-pomodoro-short-break-format "%s")
-    (org-pomodoro-long-break-format  "%s")
-    :custom-face
-    (org-pomodoro-mode-line ((t (:foreground "#ff5555"))))
-    (org-pomodoro-mode-line-break   ((t (:foreground "#50fa7b"))))
-    :hook
-    (org-pomodoro-started . (lambda () (notifications-notify
-                                               :title "org-pomodoro"
-                           :body "Let's focus for 25 minutes!")))
-    (org-pomodoro-finished . (lambda () (notifications-notify
-                                               :title "org-pomodoro"
-                           :body "Well done! Take a break.")))
-    :config
-    :bind (:map org-agenda-mode-map
-                ("p" . org-pomodoro)))
-
 ;; show the guide of keybinds
 (use-package which-key
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-;; show key binds if they are assigned to M-x commands
-(use-package amx)
-
 ;; use counsel
-(use-package counsel)
-(ivy-mode 1)
-(counsel-mode 1)
+(use-package counsel
+   :config
+   (ivy-mode 1)
+   (counsel-mode 1))
 
-;; completion-ignore-case in find-file
-(setq read-file-name-completion-ignore-case t)
+;; use rg.el
+(use-package rg
+   :config
+   (rg-enable-default-bindings))
 
 ;; store links for org-mode
 (define-key global-map "\C-cl" 'org-store-link)
@@ -92,7 +70,7 @@
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;; mode settings for extensions
-(add-to-list 'auto-mode-alist '("\\.lp\\'" . prolog-mode))
+;; (add-to-list 'auto-mode-alist '("\\.lp\\'" . prolog-mode))
 
 ;; dist of backup files
 (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")))
@@ -304,7 +282,7 @@
  '(doom-themes-enable-italic t)
  '(package-selected-packages
    (quote
-    (counsel helm amx which-key org-pomodoro doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region haskell-mode sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
+    (rg counsel which-key doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
