@@ -2,4 +2,5 @@ auto-save-list/
 backup/
 elisp/
 elpa/
+transient/
 amx-items
