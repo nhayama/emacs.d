@@ -50,10 +50,9 @@
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-;; use counsel
+;; use counsel (without using ivy-mode)
 (use-package counsel
    :config
-   (ivy-mode 1)
    (counsel-mode 1))
 
 ;; use rg.el
@@ -282,7 +281,7 @@
  '(doom-themes-enable-italic t)
  '(package-selected-packages
    (quote
-    (rg counsel which-key doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
+    (gnu-elpa-keyring-update rg counsel which-key doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
