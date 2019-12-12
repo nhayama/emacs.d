@@ -63,6 +63,10 @@
 ;; store links for org-mode
 (define-key global-map "\C-cl" 'org-store-link)
 
+;; dired settings
+(setq dired-recursive-copies 'always)
+(setq dired-isearch-filenames t)
+
 ;; short cut for wdired (push 'e' in dired-mode)
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
@@ -98,12 +102,6 @@
 
 ;; add some directories to load-path
 (add-to-load-path "elisp" "elpa")
-
-;; dired settings
-;; the default destination is another dired buffer (if opened)
-(setq dired-dwim-target t)
-(setq dired-recursive-copies 'always)
-(setq dired-isearch-filenames t)
 
 ;; window-resizer
 (defun my-window-resizer ()
