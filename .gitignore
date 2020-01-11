@@ -4,3 +4,4 @@ elisp/
 elpa/
 transient/
 amx-items
+session.*
