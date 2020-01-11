@@ -2,6 +2,27 @@
 
 (package-initialize)
 
+;; a function to add load-path
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory
+              (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+
+;; add some directories to load-path
+(add-to-load-path "elisp" "elpa")
+
+;; a destination of backup files
+(setq backup-directory-alist '((".*" . "~/.emacs.d/backup")))
+
+;; settings for font
+;; need to install Myrica
+;; Myrica.TTC -> "Myrica M", MyricaM.TTC -> "Myrica MM"
+(add-to-list 'default-frame-alist '(font . "Myrica M"))
+
 ;; MELPA
 (require 'package)
 (add-to-list 'package-archives
@@ -75,33 +96,12 @@
 ;; mode settings for extensions
 ;; (add-to-list 'auto-mode-alist '("\\.lp\\'" . prolog-mode))
 
-;; dist of backup files
-(setq backup-directory-alist '((".*" . "~/.emacs.d/backup")))
-
-;; settings for font
-;; need to install Myrica
-;; Myrica.TTC -> "Myrica M", MyricaM.TTC -> "Myrica MM"
-(add-to-list 'default-frame-alist '(font . "Myrica M"))
-
 ;; show line numbers
 (require 'linum)
 (global-linum-mode)
 
 ;; assign C-h to backspace
 (global-set-key "\C-h" 'delete-backward-char)
-
-;; a function to add load-path
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory
-              (expand-file-name (concat user-emacs-directory path))))
-        (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-            (normal-top-level-add-subdirs-to-load-path))))))
-
-;; add some directories to load-path
-(add-to-load-path "elisp" "elpa")
 
 ;; window-resizer
 (defun my-window-resizer ()
