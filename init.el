@@ -104,6 +104,7 @@
 (global-set-key "\C-h" 'delete-backward-char)
 
 ;; window-resizer
+;; taken from https://khiker.hatenablog.jp/entry/20100119/window_resize
 (defun my-window-resizer ()
   "Control window size and position."
   (interactive)
