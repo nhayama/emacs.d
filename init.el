@@ -100,6 +100,9 @@
 (require 'linum)
 (global-linum-mode)
 
+;; show corresponding parentheses
+(show-paren-mode t)
+
 ;; assign C-h to backspace
 (global-set-key "\C-h" 'delete-backward-char)
 
@@ -196,6 +199,30 @@
 ;; (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'racer-mode-hook #'company-mode)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; ### settings for scheme (using Gauche) ###
+;; taken from http://ayato.hateblo.jp/entry/20130710/1373448057
+(setq process-coding-system-alist
+      (cons '("gosh" utf-8 . utf-8) process-coding-system-alist))
+(setq scheme-program-name "/usr/bin/env gosh -i")
+
+(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
+(autoload 'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
+
+(defun scheme-other-window ()
+  "Run Gauche on other window"
+  (interactive)
+  (split-window-horizontally (/ (frame-width) 2))
+  (let ((buf-name (buffer-name (current-buffer))))
+    (scheme-mode)
+    (switch-to-buffer-other-window
+     (get-buffer-create "*scheme*"))
+    (run-scheme scheme-program-name)
+    (switch-to-buffer-other-window
+     (get-buffer-create buf-name))))
+
+(define-key global-map
+  "\C-cG" 'scheme-other-window)
 
 ;; ### settings for TeX ###
 ;; AUCTeX
