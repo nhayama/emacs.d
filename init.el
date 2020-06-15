@@ -94,7 +94,7 @@
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;; mode settings for extensions
-;; (add-to-list 'auto-mode-alist '("\\.lp\\'" . prolog-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 ;; show line numbers
 (require 'linum)
@@ -307,7 +307,7 @@
  '(doom-themes-enable-italic t)
  '(package-selected-packages
    (quote
-    (gnu-elpa-keyring-update rg counsel which-key doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
+    (markdown-mode gnu-elpa-keyring-update rg counsel which-key doom eyebrowse doom-modeline use-package doom-themes flycheck company-racer flycheck-rust racer rust-mode ggtags ensime expand-region sml-mode jedi flymake-python-pyflakes py-autopep8 exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
