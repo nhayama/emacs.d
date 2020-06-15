@@ -73,13 +73,18 @@
 
 ;; use counsel (without using ivy-mode)
 (use-package counsel
-   :config
-   (counsel-mode 1))
+  :config
+  (counsel-mode 1))
 
 ;; use rg.el
 (use-package rg
-   :config
-   (rg-enable-default-bindings))
+  :config
+  (rg-enable-default-bindings))
+
+;; use markdown-mode
+(use-package markdown
+  :mode
+  ("\\.md\\'" . gfm-mode))
 
 ;; store links for org-mode
 (define-key global-map "\C-cl" 'org-store-link)
@@ -94,7 +99,7 @@
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;; mode settings for extensions
-(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 ;; show line numbers
 (require 'linum)
