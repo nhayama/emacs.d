@@ -98,9 +98,6 @@
 (setq wdired-allow-to-change-permissions t)
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
-;; mode settings for extensions
-;; (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-
 ;; show line numbers
 (require 'linum)
 (global-linum-mode)
@@ -170,7 +167,6 @@
 (global-set-key "\M-s" 'gtags-find-symbol)
 (global-set-key "\C-t" 'gtags-pop-stack)
 
-
 ;; ### settings for C ###
 (add-hook 'c-mode-common-hook
 	  '(lambda ()
@@ -181,6 +177,9 @@
 ;; ### settings for sh-mode ###
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
+
+;; ### mode settings for other extensions ###
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 ;; ;; ### settings for python ###
 ;; ;; jedi
